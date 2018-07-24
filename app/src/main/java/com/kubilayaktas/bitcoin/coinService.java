@@ -9,6 +9,6 @@ import java.util.List;
  * Created by MSI on 24.07.2018 at 10:29.
  */
 public interface coinService {
-    @GET("users/{user}/repos")
+    @GET("ticker/")
     Call<List<CryptoCoin>> listCoin();
 }
