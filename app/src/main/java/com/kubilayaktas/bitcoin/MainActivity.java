@@ -1,5 +1,6 @@
 package com.kubilayaktas.bitcoin;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -10,24 +11,30 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import java.util.List;
+import java.util.*;
 
 public class MainActivity extends AppCompatActivity {
-
+    public List<CryptoCoin> ListCoin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ListCoin = new ArrayList<>();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.coinmarketcap.com/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         coinService service = retrofit.create(coinService.class);
         Call<List<CryptoCoin>> request = service.listCoin();
+
         request.enqueue(new Callback<List<CryptoCoin>>() {
             @Override
             public void onResponse(Call<List<CryptoCoin>> call, Response<List<CryptoCoin>> response) {
-                System.out.println("done");
+                for(CryptoCoin c : response.body()){
+                    ListCoin.add(c);
+                }
             }
 
             @Override
@@ -35,6 +42,5 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("hata");
             }
         });
-
     }
 }
