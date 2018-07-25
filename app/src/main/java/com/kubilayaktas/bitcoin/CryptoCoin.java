@@ -51,4 +51,63 @@ public class CryptoCoin {
     @Expose
     public String lastUpdated;
 
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public String getPriceUsd() {
+        return priceUsd;
+    }
+
+    public String getPriceBtc() {
+        return priceBtc;
+    }
+
+    public String get_24hVolumeUsd() {
+        return _24hVolumeUsd;
+    }
+
+    public String getMarketCapUsd() {
+        return marketCapUsd;
+    }
+
+    public String getAvailableSupply() {
+        return availableSupply;
+    }
+
+    public String getTotalSupply() {
+        return totalSupply;
+    }
+
+    public Object getMaxSupply() {
+        return maxSupply;
+    }
+
+    public String getPercentChange1h() {
+        return percentChange1h;
+    }
+
+    public String getPercentChange24h() {
+        return percentChange24h;
+    }
+
+    public String getPercentChange7d() {
+        return percentChange7d;
+    }
+
+    public String getLastUpdated() {
+        return lastUpdated;
+    }
 }
